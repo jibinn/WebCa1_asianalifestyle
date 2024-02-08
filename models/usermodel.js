@@ -24,11 +24,6 @@ const userSchema = new mongoose.Schema(
         type: String,
         required: true,
       },
-      answer: {
-        type: String,
-        // Making "answer" field optional
-        // Remove the 'required: true' option
-      },
       role: {
         type: Number,
         default: 0,
