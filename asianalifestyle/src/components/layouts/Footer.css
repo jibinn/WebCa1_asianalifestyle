@@ -1,0 +1,43 @@
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .footer-contact {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer-contact-item {
+    margin-right: 20px;
+  }
+  
+  .footer-icon {
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  
+  .footer-social {
+    font-size: 24px;
+  }
+  
+  .footer-social a {
+    color: #fff;
+    margin: 0 10px;
+  }
+  
+  .footer-social a:hover {
+    color: #ccc;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  .footer-contact-button {
+    text-decoration: none; /* Remove underline */
+  }
+  

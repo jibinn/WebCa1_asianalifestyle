@@ -1,0 +1,47 @@
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .not-found-content {
+    text-align: center;
+  }
+  
+  .not-found-heading {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+  
+  .not-found-text {
+    font-size: 1.2rem;
+    color: #777;
+  }
+  
+  /* Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .not-found-container {
+    animation: fadeIn 1s ease-in-out;
+  }
+  .go-back-button {
+  display: inline-block;
+  background-color: #000000;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.go-back-button:hover {
+  background-color: #68a4e3;
+}

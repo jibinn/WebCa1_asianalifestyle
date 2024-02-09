@@ -6,19 +6,28 @@ import AsiaHomepage from './pages/AsiaHomepage';
 import AsiaPolicy from './pages/AsiaPolicy';
 import Pagenotfound from './pages/Pagenotfound';
 import Asiacontact from './pages/Asiacontact';
-import Header from './components/layouts/Header';
+import Layouts from './components/layouts/Layouts';
+import AsiaRegister from './pages/Auth/AsiaRegister';
+import Login from './pages/Auth/Login';
+
+
 function App() {
   return (
     <>
-     <Header /> 
-    <Routes>
-      <Route path="/" element={<AsiaHomepage />} />
-      <Route path="/about" element={<AsiaAboutPage />} />
-      <Route path="/contact" element={<Asiacontact />} />
-      <Route path="/policy" element={<AsiaPolicy />} />
-      <Route path="*" element={<Pagenotfound />} />
-    </Routes>
-  </>
+      <Layouts>
+        <Routes>
+          <Route path="/" element={<AsiaHomepage />} />
+          <Route path="/register" element={<AsiaRegister />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<AsiaAboutPage />} />
+          <Route path="/contact" element={<Asiacontact />} />
+          <Route path="/policy" element={<AsiaPolicy />} />
+          <Route path="*" element={<Pagenotfound />} />
+         
+        </Routes>
+      </Layouts>
+    
+    </>
   );
 }
 

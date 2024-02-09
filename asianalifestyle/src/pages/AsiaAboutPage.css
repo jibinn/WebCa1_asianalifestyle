@@ -1,0 +1,66 @@
+.about-container {
+    padding: 20px;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-content h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .about-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+  
+  .discount-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .discount-info {
+    flex: 1;
+  }
+  
+  .discount-image {
+    flex: 1;
+    position: relative;
+  }
+  
+  .discount-image img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .discount-tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #ff5733; /* Highlight color */
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    animation: pulse 1s infinite alternate; /* Animation for discount tag */
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+  
