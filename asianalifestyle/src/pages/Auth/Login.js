@@ -5,10 +5,11 @@ import { useNavigate } from "react-router-dom";
 import {  toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
 import './Login.css'; 
-
+import { useAuth } from "../../context/Auth";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
 
@@ -22,8 +23,14 @@ const Login = () => {
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/");
-      } else {
+      }  else {
         toast.error(res.data.message);
       }
     } catch (error) {
