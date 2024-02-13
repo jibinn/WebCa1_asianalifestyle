@@ -11,6 +11,7 @@ const AsiaRegister = () => {
     const [password, setPassword] = useState("");
     const [phone, setPhone] = useState("");
     const [address, setAddress] = useState("");
+    const [answer, setAnswer] = useState("");
     const navigate = useNavigate();
 
    // form function
@@ -23,6 +24,7 @@ const AsiaRegister = () => {
         password,
         phone,
         address,
+        answer,
       });
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
@@ -101,6 +103,18 @@ const AsiaRegister = () => {
                             required 
                         />
                     </div>
+                    <div className="form-group">
+                        <label htmlFor="answer">Answer</label>
+                        <input 
+                            type="text" 
+                            id="address" 
+                            placeholder="Enter your fav sports" 
+                            value={answer} 
+                            onChange={(e) => setAnswer(e.target.value)} 
+                            required 
+                        />
+                    </div>
+
 
                     <button type="submit" className="register-button">
                         Register
