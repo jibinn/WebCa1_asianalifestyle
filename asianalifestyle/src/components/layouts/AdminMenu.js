@@ -9,6 +9,11 @@ const AdminMenu = () => {
       <Nav defaultActiveKey="/create-category" className="flex-column">
         <Nav.Link href="/dashboard/admin/create-category">Create Category</Nav.Link>
         <Nav.Link href="/dashboard/admin/create-product">Create Product</Nav.Link>
+        <Nav.Link
+            href="/dashboard/admin/products"
+          >
+            Products
+          </Nav.Link>
         <Nav.Link href="/dashboard/admin/users">Users</Nav.Link>
       </Nav>
     </Container>
