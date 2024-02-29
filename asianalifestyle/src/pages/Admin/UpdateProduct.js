@@ -21,23 +21,27 @@ const UpdateProduct = () => {
     const [id, setId] = useState("");
   
     //get single product
-    const getSingleProduct = async () => {
-      try {
-        const { data } = await axios.get(
-          `/api/v1/product/get-product/${params.slug}`
-        );
-        setName(data.product.name);
-        setId(data.product._id);
-        setDescription(data.product.description);
-        setPrice(data.product.price);
-        setPrice(data.product.price);
-        setQuantity(data.product.quantity);
-        setShipping(data.product.shipping);
-        setCategory(data.product.category._id);
-      } catch (error) {
-        console.log(error);
-      }
-    };
+const getSingleProduct = async () => {
+  try {
+    const { data } = await axios.get(
+      `/api/v1/product/get-product/${params.slug}`
+    );
+    if (data.product) {
+      setName(data.product.name);
+      setId(data.product._id);
+      setDescription(data.product.description);
+      setPrice(data.product.price);
+      setQuantity(data.product.quantity);
+      setShipping(data.product.shipping);
+      setCategory(data.product.category?._id); // Optional chaining used here
+    } else {
+      console.log("Product not found"); // Handle the case where product is null
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
     useEffect(() => {
       getSingleProduct();
       //eslint-disable-next-line
@@ -86,21 +90,22 @@ const UpdateProduct = () => {
       }
     };
   
-    //delete a product
-    const handleDelete = async () => {
-      try {
-        let answer = window.prompt("Are You Sure want to delete this product ? ");
-        if (!answer) return;
-        const { data } = await axios.delete(
-          `/api/v1/product/delete-product/${id}`
-        );
-        toast.success("Product DEleted Succfully");
-        navigate("/dashboard/admin/products");
-      } catch (error) {
-        console.log(error);
-        toast.error("Something went wrong");
-      }
-    };
+  //delete a product
+const handleDelete = async () => {
+  try {
+    let answer = window.prompt("Are You Sure want to delete this product ? ");
+    if (!answer) return;
+    const { data } = await axios.delete(
+      `/api/v1/product/delete-product/${id}`
+    );
+    toast.success("Product DEleted Succfully");
+    navigate("/dashboard/admin/products");
+  } catch (error) {
+    console.log(error);
+    toast.error("Something went wrong");
+  }
+};
+
     return (
         <div className="container-fluid m-3 p-3">
           <div className="row">

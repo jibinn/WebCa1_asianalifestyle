@@ -20,14 +20,23 @@ import Orders from './pages/users/Orders';
 import Profile from './pages/users/Profile';
 import ProductsPage from './pages/Admin/ProductsPage';
 import UpdateProduct from './pages/Admin/UpdateProduct';
-
-
+import AsiaSearch from './pages/AsiaSearch';
+import Categories from './pages/Categories';
+import ProductCategory from './pages/ProductCategory';
+import ProductsDetails from './pages/ProductsDetails';
+import CartPage from './pages/CartPage';
 function App() {
   return (
     <>
       <Layouts>
         <Routes>
           <Route path="/" element={<AsiaHomepage />} />
+        <Route path="/categories" element={<Categories/>} />
+        <Route path="/cart" element={<CartPage/>} />
+      
+        <Route path="/product/:slug" element={<ProductsDetails/>} />
+        <Route path="/category/:slug" element={<ProductCategory />} />
+          <Route path="/search" element={<AsiaSearch/>} />
           <Route path="/register" element={<AsiaRegister />} />
           <Route path="/dashboard" element={<PrivateRoute/>}>
              <Route path="user" element={<AsiaDashboard />} />

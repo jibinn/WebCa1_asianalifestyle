@@ -1,0 +1,11 @@
+/* AsiaHomepage.css */
+
+.btn-more-details,
+.btn-add-to-cart {
+    transition: background-color 0.3s ease;
+}
+
+.btn-more-details:hover,
+.btn-add-to-cart:hover {
+    background-color: #4CAF50; /* Change to desired hover color */
+}
