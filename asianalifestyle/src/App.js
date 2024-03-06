@@ -15,6 +15,7 @@ import AsiaForgot from './pages/Auth/AsiaForgot';
 import AdminRoute from './components/Routes/AdminRoute';
 import AdminDashboard from './pages/Admin/AdminDashboard';
 import CreateCategory from './pages/Admin/CreateCategory';
+import Users from './pages/Admin/Users';
 import CreateProduct from './pages/Admin/CreateProduct';
 import Orders from './pages/users/Orders';
 import Profile from './pages/users/Profile';
@@ -25,6 +26,7 @@ import Categories from './pages/Categories';
 import ProductCategory from './pages/ProductCategory';
 import ProductsDetails from './pages/ProductsDetails';
 import CartPage from './pages/CartPage';
+import AdminOrder from './pages/Admin/AdminOrder';
 function App() {
   return (
     <>
@@ -48,6 +50,8 @@ function App() {
             <Route path="admin/create-category" element={<CreateCategory />} />
             <Route path="admin/create-product" element={<CreateProduct />} />
             <Route path="admin/products" element={<ProductsPage />} />
+            <Route path="admin/orders" element={<AdminOrder/>} />
+            <Route path="admin/users" element={<Users/>} />
             <Route path="admin/product/:slug" element={<UpdateProduct />} />
           </Route>
     

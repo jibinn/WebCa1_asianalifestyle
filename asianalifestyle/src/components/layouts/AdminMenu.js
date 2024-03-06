@@ -15,7 +15,14 @@ const AdminMenu = () => {
             Products
           </Nav.Link>
         <Nav.Link href="/dashboard/admin/users">Users</Nav.Link>
+        <Nav.Link
+            href="/dashboard/admin/orders"
+          
+          >
+            Orders
+          </Nav.Link>
       </Nav>
+      
     </Container>
   );
 };
