@@ -9,9 +9,8 @@ import Slider from "react-slick";
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css';
 import 'react-toastify/dist/ReactToastify.css';
-import asimg1 from "../images/asimg.jpg"; // Import image
-import asimg2 from "../images/slider3.jpg"; // Import image
-import asimg3 from "../images/slider4.jpg"; // Import image
+import asimg1 from "../images/banner03.webp"; // Import image
+import asimg2 from "../images/banner01.webp"; // Import image
 import "./AsiaHomepage.css"; // Import custom CSS file
 
 const AsiaHomepage = () => {
@@ -24,7 +23,7 @@ const AsiaHomepage = () => {
     const [total, setTotal] = useState(0);
     const [page, setPage] = useState(1);
     const [loading, setLoading] = useState(false);
-    const [sliderImages, setSliderImages] = useState([asimg3, asimg1, asimg2]);
+    const [sliderImages, setSliderImages] = useState([ asimg1, asimg2]);
 
 
     // Get all categories
@@ -207,7 +206,7 @@ const AsiaHomepage = () => {
                                 <p className="card-text">
                                     {p.description.substring(0, 30)}...
                                 </p>
-                                <p className="card-text"> $ {p.price}</p>
+                                <p className="card-text"> € {p.price}</p>
                                 <button
                                     className="btn btn-more-details ms-1" // Custom class for "More Details" button
                                     onClick={() => navigate(`/product/${p.slug}`)}
