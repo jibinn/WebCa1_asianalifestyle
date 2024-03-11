@@ -18,23 +18,27 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-app.use(express.static(path.join(__dirname,'./asianalifestyle/build')))
+
 //routes
 app.use("/api/v1/auth", authroutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
 
-// ES module fix
-const __filename = new URL(import.meta.url).pathname;
-const __dirname = path.dirname(__filename);
-
 //databse config
 connectDB();
 
-app.use('*',function(req,res){
-  res.sendFile(path.join(__dirname,'./asianalifestyle/build/index.html'));
-})
-
 app.listen(PORT, () => {
+  // ES module fix
+  const __filename = new URL(import.meta.url).pathname;
+  const __dirname = path.dirname(__filename);
+  
   console.log(`Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white);
+
+  // Static file serving setup
+  app.use(express.static(path.join(__dirname, './asianalifestyle/build')));
+
+  app.use('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./asianalifestyle/build/index.html'));
+  })
 });
+
