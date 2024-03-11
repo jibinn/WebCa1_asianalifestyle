@@ -8,6 +8,7 @@ import categoryRoutes from "./routes/categoryRoutes.js"
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
 import path from "path";
+import {fileUrlToPath} from 'url'; 
 // Load environment variables from .env file
 dotenv.config();
 
@@ -23,6 +24,9 @@ app.use(express.static(path.join(__dirname,'./asianalifestyle/build')))
 app.use("/api/v1/auth", authroutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
+// es module fix
+const __filename = fileUrlToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //databse config
 connectDB();
