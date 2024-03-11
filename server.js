@@ -7,6 +7,7 @@ import authroutes from "./routes/authroutes.js"
 import categoryRoutes from "./routes/categoryRoutes.js"
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
+import path from "path";
 // Load environment variables from .env file
 dotenv.config();
 
@@ -17,7 +18,7 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
-
+app.use(express.static(path.join(__dirname,'./asianalifestyle/build')))
 //routes
 app.use("/api/v1/auth", authroutes);
 app.use("/api/v1/category", categoryRoutes);
@@ -26,9 +27,9 @@ app.use("/api/v1/product", productRoutes);
 //databse config
 connectDB();
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
+app.use('*',function(req,res){
+  res.sendFile(path.join(__dirname,'./asianalifestyle/build/index.html'));
+})
 
 app.listen(PORT, () => {
   console.log(`Server Running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white);
