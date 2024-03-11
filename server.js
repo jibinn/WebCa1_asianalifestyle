@@ -8,11 +8,9 @@ import categoryRoutes from "./routes/categoryRoutes.js"
 import productRoutes from "./routes/productRoutes.js";
 import cors from "cors";
 import path from "path";
-import { url } from 'url';
 // Load environment variables from .env file
 dotenv.config();
 
-const { fileURLToPath } = url;
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -25,7 +23,8 @@ app.use(express.static(path.join(__dirname,'./asianalifestyle/build')))
 app.use("/api/v1/auth", authroutes);
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
-// es module fix
+
+// ES module fix
 const __filename = new URL(import.meta.url).pathname;
 const __dirname = path.dirname(__filename);
 
